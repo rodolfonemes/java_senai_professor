@@ -1,0 +1,7 @@
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+iex (new-object net.webclient).downloadstring('https://get.scoop.sh')
+scoop install git openssh -g
+[environment]::setenvironmentvariable('GIT_SSH', (resolve-path (scoop which ssh)), 'USER')
+scoop bucket add java
+scoop install adoptopenjdk-lts-hotspot -g
+scoop install adopt8-hotspot -g
